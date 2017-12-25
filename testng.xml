@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MealBox automation tests">
+
+
+	<test name="Food cart with mealbox: Test on Firefox">
+		<parameter name="browser" value="Firefox" />
+		<classes>
+			<class name="com.sudha.ecom.foodkart.automation.setup.OpenBrowser" />
+			<class name="com.sudha.ecom.foodkart.automation.setup.NavigateToRegistration" />
+			<class name="com.sudha.ecom.foodkart.automation.tests.RegistrationTest" />
+			<class name="com.sudha.ecom.foodkart.automation.tests.LoginTest" />
+			<class name="com.sudha.ecom.foodkart.automation.tests.HomePageTest" />
+			<class name="com.sudha.ecom.foodkart.automation.tests.ClassicPlanPageTest" />
+			<class name="com.sudha.ecom.foodkart.automation.setup.CloseBrowser" />
+		</classes>
+	</test>
+
+	<test name="Food cart with mealbox: Test on Chrome">
+		<parameter name="browser" value="Chrome" />
+		<classes>
+			<class name="com.sudha.ecom.foodkart.automation.setup.OpenBrowser" />
+			<class name="com.sudha.ecom.foodkart.automation.setup.NavigateToRegistration" />
+			<class name="com.sudha.ecom.foodkart.automation.tests.RegistrationTest" />
+			<class name="com.sudha.ecom.foodkart.automation.tests.LoginTest" />
+			<class name="com.sudha.ecom.foodkart.automation.tests.HomePageTest" />
+			<class name="com.sudha.ecom.foodkart.automation.tests.ClassicPlanPageTest" />
+			<class name="com.sudha.ecom.foodkart.automation.setup.CloseBrowser" />
+		</classes>
+	</test>
+	
+
+</suite>
