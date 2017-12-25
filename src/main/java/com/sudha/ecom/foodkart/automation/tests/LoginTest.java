@@ -1,5 +1,7 @@
 package com.sudha.ecom.foodkart.automation.tests;
 
+import java.util.Base64;
+
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 

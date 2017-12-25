@@ -32,25 +32,26 @@ public class ClassicPlanPageTest {
 
 		TestUtils.addDelay(1000);
 
-		if (classicPlanPage.verifyClassicMenu.isDisplayed()) {
+		if (classicPlanPage.getMenuSelectedElement().isDisplayed()) {
 			test.log(LogStatus.PASS, "Classic menu has been added to the cart");
 		} else {
 			test.log(LogStatus.FAIL, "Classic menu has NOT been added to the cart");
 		}
 
-		if (classicPlanPage.verifyPrice.isDisplayed()) {
+		if (classicPlanPage.getProductPriceElement().isDisplayed()) {
 			test.log(LogStatus.PASS,
-					"Classic menu has been added to the cart with the price:" + classicPlanPage.verifyPrice.getText());
+					"Classic menu has been added to the cart with the price:" + classicPlanPage.getProductPriceElement().getText());
 		}
 		else {
 			test.log(LogStatus.FAIL, "Classic menu has NOT been added to the cart");
 		}
 
-		String patronsCount = classicPlanPage.patronCount.getText().split(" ")[0];
+		String patronsCount = classicPlanPage.getPatronsCount();
+		//.getText().split(" ")[0];
 
-		String recipesCount = classicPlanPage.mealCount.getText().split(" ")[0];
+		String recipesCount = classicPlanPage.getMealCountElement().getText().split(" ")[0];
 
-		String productPrice = classicPlanPage.verifyPrice.getText().substring(1);
+		String productPrice = classicPlanPage.getProductPriceElement().getText().substring(1);
 
 		Float expectedPrice = Float.parseFloat(patronsCount) * Float.parseFloat(recipesCount) * HomePageTest.price;
 

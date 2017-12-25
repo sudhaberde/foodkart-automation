@@ -66,11 +66,10 @@ public class RegistrationTest {
 	
 	
 	
-	TestUtils.addDelay(1000);
+	TestUtils.addDelay(3000);
 	registrationPage.registerButton.click();
 	
 	TestUtils.addDelay(5000);
-	System.out.println("Wait complete");
 	//Wait for the user name displayed on the profile
 	if(registrationPage.loggedInUserName.isDisplayed())
 	{

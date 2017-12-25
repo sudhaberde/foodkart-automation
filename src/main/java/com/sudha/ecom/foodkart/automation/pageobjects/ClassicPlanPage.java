@@ -42,19 +42,66 @@ public class ClassicPlanPage {
 	
 	
 	@FindBy(xpath=".//span[@applanga='classic-menu-title']")
-	public WebElement verifyClassicMenu;
+	private WebElement verifyClassicMenu_us;
+	
+	@FindBy(xpath=".//strong[@ng-bind='vm.productHelper.getProductTitle(product)']")
+	private WebElement verifyClassicMenu_uk;
 	
 	@FindBy(xpath=".//span[@ng-bind='vm.getProductPrice(product)']")
-	public WebElement verifyPrice;
+	private WebElement verifyPrice_us;
+	
+	@FindBy(xpath=".//strong[@ng-bind='product.price']")
+	private WebElement verifyPrice_uk;
 	
 	@FindBy(xpath=".//span[@ng-bind='vm.getProductSize(product)']")
-	public WebElement patronCount;
+	private WebElement patronCount_us;
 	
 	
 	@FindBy(xpath=".//span[@ng-bind='vm.getProductMeals(product)']")
-	public WebElement mealCount;
+	private WebElement mealCount_us;
 	
+	@FindBy(xpath=".//span[@ng-bind='product.specsLabel']")
+	private WebElement mealCount_uk;
 	
+	public WebElement getMealCountElement(){
+		if("US".equalsIgnoreCase(System.getProperty("country.code"))){
+			return mealCount_us;
+		}else if("UK".equalsIgnoreCase(System.getProperty("country.code"))){
+			return mealCount_uk;
+		}else{
+			return mealCount_us;
+		}
+	}
+	
+	public String getPatronsCount(){
+		if("US".equalsIgnoreCase(System.getProperty("country.code"))){
+			return patronCount_us.getText().split(" ")[0];
+		}else if("UK".equalsIgnoreCase(System.getProperty("country.code"))){
+			return mealCount_uk.getText().split(" - ")[1].split(" ")[0];
+		}else{
+			return patronCount_us.getText().split(" ")[0];
+		}
+	}
+	
+	public WebElement getProductPriceElement(){
+		if("US".equalsIgnoreCase(System.getProperty("country.code"))){
+			return verifyPrice_us;
+		}else if("UK".equalsIgnoreCase(System.getProperty("country.code"))){
+			return verifyPrice_uk;
+		}else{
+			return verifyPrice_us;
+		}
+	}
+	
+	public WebElement getMenuSelectedElement(){
+		if("US".equalsIgnoreCase(System.getProperty("country.code"))){
+			return verifyClassicMenu_us;
+		}else if("UK".equalsIgnoreCase(System.getProperty("country.code"))){
+			return verifyClassicMenu_uk;
+		}else{
+			return verifyClassicMenu_us;
+		}
+	}
 
 	
 	/**

@@ -20,7 +20,7 @@ public class OpenBrowser {
 	
 	public static WebDriver webDriver = null;
 	//private static final String HELLO_FRESH_URL= "https://www.hellofresh.com";
-	private static final String HELLO_FRESH_URL= TestProperties.getProperty("landing.page."+System.getProperty("country.code").toUpperCase());
+	private static final String HELLO_FRESH_URL= TestProperties.getProperty("landing.page."+(System.getProperty("country.code")!=null?System.getProperty("country.code").toUpperCase():"DEFAULT"));
 	
 	private ExtentReports extent = ExtentReportManager.getInstance();
 	private ExtentTest test;
@@ -30,7 +30,7 @@ public class OpenBrowser {
 	@Parameters({ "browser" })
 	public void startBrowser(String browser) {
 		//set the driver based on browser
-		System.out.println("Country "+ HELLO_FRESH_URL );
+		System.out.println("Website address: "+ HELLO_FRESH_URL );
 		if (browser.equalsIgnoreCase("Chrome")){
 			test = extent.startTest("OpenBrowser");
 			test.log(LogStatus.INFO, "Opening Chrome Browser");

@@ -48,7 +48,7 @@ public class HomePageTest {
 		
 		//TestUtils.waitForElement(homepage.selectMenuList);
 		
-		String priceText=homepage.price.getText();
+		String priceText=homepage.getPriceElement().getText();
 		
 		price = Float.parseFloat(priceText.split(" ")[1]);
 		
